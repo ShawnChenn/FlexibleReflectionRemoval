@@ -1,4 +1,3 @@
-# FlexibleReflectionRemoval
 <p align="center">
 
   <h1 align="center">Towards Flexible Interactive Reflection Removal with Human Guidance</h1>
