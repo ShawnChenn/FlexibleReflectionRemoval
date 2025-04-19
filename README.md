@@ -21,14 +21,23 @@ pip install -r requirements.txt
 python setup.py develop --no_cuda_ext
 ```
 
+### Train
+CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/REDS/NAFNet-width64.yml
+
+### Datasets
+Please download the datasets with contrastive masks from [Google Drive](https://drive.google.com/your-dataset-link)
+
 ### Citations
 If our work helps your research or work, please consider citing NAFNet.
 
 ```
-@article{chen2022simple,
-  title={Simple Baselines for Image Restoration},
-  author={Chen, Liangyu and Chu, Xiaojie and Zhang, Xiangyu and Sun, Jian},
-  journal={arXiv preprint arXiv:2204.04676},
-  year={2022}
+@inproceedings{chen2025firm,
+  title={FIRM: Flexible Interactive Reflection ReMoval},
+  author={Chen, Xiao and Jiang, Xudong and Tao, Yunkang and Lei, Zhen and Li, Qing and Lei, Chenyang and Zhang, Zhaoxiang},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={2},
+  pages={2230--2238},
+  year={2025}
 }
 ```
