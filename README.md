@@ -1,61 +1,34 @@
 <p align="center">
 
-  <h1 align="center">Towards Flexible Interactive Reflection Removal with Human Guidance</h1>
+  <h1 align="center">AAAI25' FIRM: Flexible Interactive Reflection reMoval</h1>
   
 </p>
 <p align="center">
 
-## 0. Todo
-- [ ] Complete environment setup instruction.
-- [ ] Provide dataset download link and pre-processing utilities.
-- [ ] Provide model checkpoints and inference instruction.
-- [ ] Provide custom training instruction.
-- [ ] Provide custom evaluation instruction
+### Installation
+This implementation based on [BasicSR](https://github.com/xinntao/BasicSR) which is a open source toolbox for image/video restoration tasks and [HINet](https://github.com/megvii-model/HINet) 
 
-## 1. Setting-Up Environment
-Coming soon...
-
-## 2. Dataset
-Coming soon...
-
-
-## 3. Model Checkpoints
-Coming soon...
-
-## 4. Training
-Coming soon...
-<!-- Run the following to start the training process:
-
-```bash
-./scripts/runs/train.sh <MODEL>
+```python
+python 3.9.5
+pytorch 1.11.0
+cuda 11.3
 ```
 
-Where `<MODEL>` refers to the type of model to train, can be one of `PPFT`, `PPFTFreeze`, `PPFTScratch`, and `PPFTShallow`. Of course, it is welcomed to add your own models as extensions.
-
-For example, to reproduce our final model, run:
-
-```bash
-./scripts/runs/train.sh PPFT
+```
+git clone https://github.com/megvii-research/NAFNet
+cd NAFNet
+pip install -r requirements.txt
+python setup.py develop --no_cuda_ext
 ```
 
-> Note that you can tune the training parameters inside the training script if you wish to do so.
+### Citations
+If our work helps your research or work, please consider citing NAFNet.
 
-Experiment artifacts will be stored under `./experiments/<MODEL_NAME>_train_<YYYY-MM-DD-hh:mm:ss>`. For example, `./experiments/PPFT_train_2024-03-11-17:00:59`. -->
-
-## 5. Inference & Evaluation
-Coming soon...
-<!-- If reproducing our testing result is the only concern, please run:
-
-```bash
-./scripts/runs/test.sh
 ```
-
-
-## 6. Acknowledgement
-This work was supported by the InnoHK program.   
-
-
-## 7. Cite
-```
-
+@article{chen2022simple,
+  title={Simple Baselines for Image Restoration},
+  author={Chen, Liangyu and Chu, Xiaojie and Zhang, Xiangyu and Sun, Jian},
+  journal={arXiv preprint arXiv:2204.04676},
+  year={2022}
+}
 ```

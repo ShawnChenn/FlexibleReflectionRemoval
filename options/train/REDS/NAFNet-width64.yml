@@ -1,0 +1,104 @@
+# ------------------------------------------------------------------------
+# Copyright (c) 2022 megvii-model. All Rights Reserved.
+# ------------------------------------------------------------------------
+# Modified from BasicSR (https://github.com/xinntao/BasicSR)
+# Copyright 2018-2020 BasicSR Authors
+# ------------------------------------------------------------------------
+# general settings
+name: NAFNet-REDS-width64-baseline-pairmask-1221
+model_type: ImageRestorationModel
+scale: 1
+num_gpu: 1
+manual_seed: 10
+
+datasets:
+  train:
+    name: reds-train
+    type: PairedImageDataset
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: lmdb
+
+    gt_size: 224
+    use_flip: true
+    use_rot: true
+
+    # data loader
+    use_shuffle: true
+    num_worker_per_gpu: 8
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+  val:
+    name: reds-val300-test
+    type: PairedImageDataset
+    
+
+network_g:
+  img_channel: 4 
+  out_channel: 3
+  type: NAFNetLocal
+  width: 64
+  enc_blk_nums: [2, 2, 2, 18]
+  middle_blk_num: 1
+  dec_blk_nums: [2, 2, 2, 4]
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+  
+# training settings
+train:
+  optim_g:
+    type: AdamW
+    lr: !!float 1e-3
+    weight_decay: !!float 1e-3
+    betas: [0.9, 0.9]
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 100000
+    eta_min: !!float 1e-7
+
+  total_iter: 50000
+  warmup_iter: -1 # no warm up
+
+  # losses
+  pixel_opt:
+    type: PSNRLoss
+    loss_weight: 1
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: 2000
+  save_img: false
+
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 10
+  save_checkpoint_freq: 10000
+  use_tb_logger: true`
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
