@@ -357,4 +357,4 @@ if __name__ == '__main__':
 
     os.environ['GRPC_POLL_STRATEGY']='epoll1'
     main()
-# nohup python basicsr/train.py -opt options/train/REDS/NAFNet-width64.yml > /dev/null 2>&1 &
+# nohup CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/REDS/NAFNet-width64.yml > /dev/null 2>&1 &

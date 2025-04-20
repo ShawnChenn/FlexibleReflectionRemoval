@@ -25,7 +25,7 @@ python setup.py develop --no_cuda_ext
 CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/REDS/NAFNet-width64.yml
 
 ### Datasets
-Please download the datasets with contrastive masks from [Google Drive](https://drive.google.com/your-dataset-link)
+Please download the datasets with contrastive masks from [OneDrive](https://connectpolyu-my.sharepoint.com/:u:/g/personal/21119074r_connect_polyu_hk/EZKRZU1E1cNBpYCSUSIM7mABLHazetKJDZKWkd9UfyMPCw?e=yt9Ssh)
 
 ### Citations
 If our work helps your research or work, please consider citing NAFNet.
