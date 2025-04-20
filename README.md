@@ -1,12 +1,5 @@
-# FIRM
+# AAAI25' FIRM: Flexible Interactive Reflection reMoval
 Dataset and Code for AAAI'25 paper. 
-
-<p align="center">
-
-  <h1 align="center">AAAI25' FIRM: Flexible Interactive Reflection reMoval</h1>
-  
-</p>
-<p align="center">
 
 ### Installation
 This implementation based on [BasicSR](https://github.com/xinntao/BasicSR) which is a open source toolbox for image/video restoration tasks and [HINet](https://github.com/megvii-model/HINet) 
